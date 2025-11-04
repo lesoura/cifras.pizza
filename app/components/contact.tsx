@@ -7,7 +7,7 @@ export default function Contact() {
   return (
     <motion.section
       id="contact"
-      className="w-full py-32 px-6 sm:px-16 flex flex-col items-center text-center text-white bg-zinc-950"
+      className="w-full py-32 px-6 sm:px-16 flex flex-col items-center text-center text-white bg-zinc-950/95"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -18,11 +18,9 @@ export default function Contact() {
       <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-[#CEAE7B] uppercase tracking-wide">
         Get in Touch
       </h2>
-     <p className="text-gray-400 mb-10 max-w-3xl">
-        We'd love to hear from you! Reach out anytime. Order from us — Open Daily: 10AM – 3AM
-     </p>
-
-      
+      <p className="text-gray-400 mb-10 max-w-3xl">
+          We'd love to hear from you! Reach out anytime. Order from us — Open Daily: 10AM – 3AM
+      </p>
 
       {/* Branch Maps */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-6xl">

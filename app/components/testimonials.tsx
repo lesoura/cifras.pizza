@@ -51,7 +51,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="w-full py-20 px-6 sm:px-16 bg-black text-white overflow-hidden"
+      className="w-full py-20 px-6 sm:px-16 bg-black/95 text-white overflow-hidden"
     >
       <motion.h2
         className="text-4xl sm:text-5xl font-bold text-center mb-12 text-[#ff5a5f]"
