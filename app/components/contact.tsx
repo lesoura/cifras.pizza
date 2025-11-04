@@ -18,8 +18,8 @@ export default function Contact() {
       <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-[#CEAE7B] uppercase tracking-wide">
         Get in Touch
       </h2>
-      <p className="text-gray-400 mb-10 max-w-3xl">
-          We'd love to hear from you! Reach out anytime. Order from us — Open Daily: 10AM – 3AM
+      <p className="text-gray-400 mb-10 max-w-4xl">
+          We'd love to hear from you! Reach out anytime. Order from us — Open Daily: 10AM – 3AM (0949-897-6361 / 0968-243-4110)
       </p>
 
       {/* Branch Maps */}
