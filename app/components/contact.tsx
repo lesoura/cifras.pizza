@@ -22,37 +22,7 @@ export default function Contact() {
         We'd love to hear from you! Reach out anytime. Order from us — Open Daily: 10AM – 3AM
      </p>
 
-      {/* Icon Buttons */}
-      <div className="flex flex-wrap justify-center gap-8 mb-12 text-3xl">
-        <a
-          href="tel:09498976361"
-          className="text-[#CEAE7B] hover:text-white transition"
-        >
-          <FaPhoneAlt />
-        </a>
-        <a
-          href="mailto:cifraspizza@gmail.com"
-          className="text-[#CEAE7B] hover:text-white transition"
-        >
-          <FaEnvelope />
-        </a>
-        <a
-          href="https://www.facebook.com/cifraspizza"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[#CEAE7B] hover:text-white transition"
-        >
-          <FaFacebookF />
-        </a>
-        <a
-          href="https://www.instagram.com/cifraspizza"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[#CEAE7B] hover:text-white transition"
-        >
-          <FaInstagram />
-        </a>
-      </div>
+      
 
       {/* Branch Maps */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-6xl">
@@ -94,6 +64,38 @@ export default function Contact() {
           ></iframe>
           <p className="text-center text-[#CEAE7B] font-semibold mt-2">📍Marikina Branch</p>
         </div>
+      </div>
+
+      {/* Icon Buttons */}
+      <div className="flex flex-wrap justify-center gap-8 text-3xl mt-8">
+        <a
+          href="tel:09498976361"
+          className="text-[#CEAE7B] hover:text-white transition"
+        >
+          <FaPhoneAlt />
+        </a>
+        <a
+          href="mailto:cifraspizza@gmail.com"
+          className="text-[#CEAE7B] hover:text-white transition"
+        >
+          <FaEnvelope />
+        </a>
+        <a
+          href="https://www.facebook.com/cifraspizza"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#CEAE7B] hover:text-white transition"
+        >
+          <FaFacebookF />
+        </a>
+        <a
+          href="https://www.instagram.com/cifraspizza"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#CEAE7B] hover:text-white transition"
+        >
+          <FaInstagram />
+        </a>
       </div>
     </motion.section>
   );

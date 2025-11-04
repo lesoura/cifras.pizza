@@ -60,7 +60,7 @@ export default function Testimonials() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ amount: 0.3, once: false }}
       >
-        What Our Customers Say
+        What Do Food Vloggers Say?
       </motion.h2>
 
       <motion.div

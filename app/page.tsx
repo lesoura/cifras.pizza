@@ -10,6 +10,7 @@ import About from "./components/about";
 import Testimonials from "./components/testimonials";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
+import LightRays from "@/components/LightRays";
 
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
@@ -51,7 +52,9 @@ export default function Home() {
         <>
           <Header />
           <Hero />
+          <div id='menu'>
           <Menu />
+          </div>
           {/* <Specials /> */}
           <About />
           <Testimonials />

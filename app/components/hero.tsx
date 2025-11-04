@@ -31,7 +31,6 @@ export default function Hero() {
       <div className="absolute inset-0 -z-10">
           <LightRays raysColor="#CEAE7B" />
       </div>
-      <div className="absolute inset-0 bg-black/60 -z-10" />
 
       {/* 2 Columns */}
       <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 items-center w-full gap-10">
