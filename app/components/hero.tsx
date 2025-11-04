@@ -86,11 +86,11 @@ export default function Hero() {
 
             <a
               href="#contact"
-              className="px-8 py-4 border border-[#CEAE7B] text-[#CEAE7B] rounded-full font-semibold flex items-center gap-2 transition 
-                       hover:bg-[#CEAE7B] hover:text-black hover:border-zinc-700"
+              className="relative px-8 py-4 border border-[#CEAE7B] text-[#CEAE7B] rounded-full font-semibold flex items-center gap-2 transition hover:bg-[#CEAE7B] hover:text-black"
             >
-              <FaRegEdit className="text-lg" />
-              Order Now!
+              <span className="absolute inset-0 rounded-full border-2 border-[#CEAE7B] animate-pulse-glow pointer-events-none"></span>
+              <FaRegEdit className="text-lg z-10" />
+              <span className="z-10">Order Now!</span>
             </a>
           </div>
         </motion.div>

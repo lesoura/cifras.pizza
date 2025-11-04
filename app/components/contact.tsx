@@ -78,6 +78,15 @@ export default function Contact() {
         >
           <FaEnvelope />
         </a>
+        {/* Foodpanda Button */}
+        <a
+          href="https://www.foodpanda.ph/restaurant/xrda/cifras-pizza"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-0 inline-block px-8 py-2 border border-[#CEAE7B] text-[#CEAE7B] font-semibold rounded-full hover:bg-[#CEAE7B] hover:text-black hover:border-[#CEAE7B] transition text-sm"
+        >
+          Order via Foodpanda 🍕
+        </a>
         <a
           href="https://www.facebook.com/cifraspizza"
           target="_blank"

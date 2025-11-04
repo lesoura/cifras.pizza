@@ -46,3 +46,19 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 0px #ceae7b, 0 0 5px #ceae7b, 0 0 15px #ceae7b;
+  }
+  50% {
+    box-shadow: 0 0 5px #ceae7b, 0 0 15px #ceae7b, 0 0 30px #ceae7b;
+  }
+  100% {
+    box-shadow: 0 0 0px #ceae7b, 0 0 5px #ceae7b, 0 0 15px #ceae7b;
+  }
+}
+
+.animate-pulse-glow {
+  animation: glowPulse 2s infinite ease-in-out;
+}
