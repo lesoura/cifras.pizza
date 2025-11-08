@@ -10,6 +10,7 @@ import About from "./components/about";
 import Testimonials from "./components/testimonials";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
+import BottomTicker from "./components/bottomticker";
 
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
@@ -63,7 +64,7 @@ export default function Home() {
         <Contact />
         <Footer />
       </div>
-
+      <BottomTicker />
       {/* bg ends here */}
     </>
   )}
