@@ -19,42 +19,49 @@ export default function BottomTicker() {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       const docHeight = document.documentElement.scrollHeight;
-
-      setIsAtBottom(scrollY + windowHeight >= docHeight);
+      // add 2px tolerance for consistency
+      setIsAtBottom(scrollY + windowHeight >= docHeight - 2);
     };
 
+    // initialize immediately
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, []);
 
   return (
     <AnimatePresence>
       {!isAtBottom && (
         <motion.div
-            className="fixed inset-x-0 bottom-0 z-50 flex justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
+          className="fixed bottom-0 inset-x-0 z-50 flex justify-center pointer-events-none"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="flex h-12 items-center px-4">
+            <motion.div
+              className="flex whitespace-nowrap"
+              animate={{ x: ["100%", "-100%"] }}
+              transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
             >
-            <div className="flex h-12 items-center px-4">
-                <motion.div
-                className="flex whitespace-nowrap"
-                animate={{ x: ["100%", "-100%"] }}
-                transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
+              {tickerItems.concat(tickerItems).map((item, i) => (
+                <span
+                  key={i}
+                  className={`inline-block px-8 text-lg font-bold backdrop-blur-md bg-black/20 rounded-full mr-2 ${
+                    i % 2 === 0 ? "text-[#CEAE7B]" : "text-[#ff5a5f]"
+                  }`}
                 >
-                {tickerItems.concat(tickerItems).map((item, i) => (
-                    <span
-                    key={i}
-                    className={`inline-block px-8 text-lg font-bold backdrop-blur-md bg-black/20 rounded-full mr-2 ${
-                        i % 2 === 0 ? "text-[#CEAE7B]" : "text-[#ff5a5f]"
-                    }`}
-                    >
-                    {item}
-                    </span>
-                ))}
-                </motion.div>
-            </div>
+                  {item}
+                </span>
+              ))}
+            </motion.div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
