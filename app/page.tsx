@@ -11,23 +11,42 @@ import Contact from "./components/contact";
 import Footer from "./components/footer";
 import BottomTicker from "./components/bottomticker";
 
+const menuImages = [
+  "/images/veggiexcheese.png",
+  "/images/menu1.jpg",
+  "/images/menu2.jpg",
+  "/images/menu3.jpg",
+  "/images/menu4.jpg",
+  "/images/menu5.jpg",
+  "/images/menu6.jpg",
+  "/images/menu7.jpg",
+  "/images/menu8.jpg",
+  "/images/hand-model.png",
+  "/images/hand-model-right.png",
+];
+
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
-    const pizzaImage = new Image();
-    pizzaImage.src = "/images/veggiexcheese.png";
-    pizzaImage.onload = () => setImageLoaded(true);
+    let loadedCount = 0;
+    menuImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        loadedCount++;
+        if (loadedCount === menuImages.length) setImagesLoaded(true);
+      };
+    });
   }, []);
 
   useEffect(() => {
-    // Only hide splash when image is loaded
-    if (imageLoaded) {
-      const timer = setTimeout(() => setShowSplash(false), 1000); // optional extra delay
+    if (imagesLoaded) {
+      const timer = setTimeout(() => setShowSplash(false), 500); // small extra delay
       return () => clearTimeout(timer);
     }
-  }, [imageLoaded]);
+  }, [imagesLoaded]);
 
   return (
     <main className="relative flex flex-col">

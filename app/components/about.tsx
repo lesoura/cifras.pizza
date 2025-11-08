@@ -63,7 +63,7 @@ export default function About() {
         Founded in 2022 by{" "}
         <span className="text-[#CEAE7B] font-semibold">Jewel Torres Cifra</span>, a known
         founder of Pasayeño Klasiko, started from a humble house with great knowledge and mastery
-        he gained from working at Sbarro. Cifra’s Pizza was built on passion, precision, and love
+        he gained from working at an Italian restaurant. Cifra’s Pizza was built on passion, precision, and love
         for the craft. What started as a simple dream quickly turned into a pursuit of creating
         pizzas that aren’t just delicious — but unforgettable. Each pizza is made with care,
         inspired by the same dedication Jewel has for his classic motorcycles. With one goal in
