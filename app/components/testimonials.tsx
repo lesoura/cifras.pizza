@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import CircularGallery from "@/components/CircularGallery";
+import "@/components/CircularGallery.css";
 
 const reviews = [
   {
@@ -21,31 +23,31 @@ const reviews = [
   },
 ];
 
-// Variants for stagger + card direction
+// sample CircularGallery items
+const galleryItems = [
+  { image: "/images/slide1.jpg", text: "" },
+  { image: "/images/slide2.jpg", text: "" },
+  { image: "/images/slide3.jpg", text: "" },
+  { image: "/images/slide4.jpg", text: "" },
+  { image: "/images/slide5.jpg", text: "" },
+  { image: "/images/slide6.jpg", text: "" },
+  { image: "/images/slide7.jpg", text: "" },
+  { image: "/images/slide8.jpg", text: "" },
+];
+
 const containerVariants = {
   hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.25,
-    },
-  },
+  visible: { transition: { staggerChildren: 0.25 } },
 };
 
 const cardVariants = (i: number) => ({
-  hidden: {
-    opacity: 0,
-    x: i === 0 ? -100 : i === 1 ? 0 : 100,
-  },
+  hidden: { opacity: 0, x: i === 0 ? -100 : i === 1 ? 0 : 100 },
   visible: {
     opacity: 1,
     x: 0,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut" as const, // ✅ use literal keyword, cast fixes TS
-    },
+    transition: { duration: 0.8, ease: "easeOut" as const },
   },
 });
-
 
 export default function Testimonials() {
   return (
@@ -63,12 +65,13 @@ export default function Testimonials() {
         What Do Food Vloggers Say?
       </motion.h2>
 
+      {/* Vloggers Section */}
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-3 gap-10 max-w-6xl mx-auto"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ amount: 0.3, once: false }} // 👈 retriggers every time
+        viewport={{ amount: 0.3, once: false }}
       >
         {reviews.map((review, i) => (
           <motion.div
@@ -76,9 +79,7 @@ export default function Testimonials() {
             variants={cardVariants(i)}
             className="relative bg-zinc-900 rounded-2xl shadow-lg p-6 text-center group overflow-visible"
           >
-            {/* Avatar */}
             <div className="flex justify-center mb-4 relative">
-              {/* Default Avatar */}
               <motion.div className="w-20 h-20 rounded-full overflow-hidden border-4 border-[#ff5a5f] transition-all duration-300 group-hover:opacity-0 group-hover:border-transparent">
                 <Image
                   src={review.image}
@@ -89,7 +90,6 @@ export default function Testimonials() {
                 />
               </motion.div>
 
-              {/* Enlarged Avatar on Hover */}
               <motion.div className="absolute w-32 h-32 rounded-full overflow-hidden border-4 border-transparent opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 -top-32">
                 <Image
                   src={review.image}
@@ -105,6 +105,32 @@ export default function Testimonials() {
             <h4 className="font-semibold text-[#ff5a5f]">{review.name}</h4>
           </motion.div>
         ))}
+      </motion.div>
+
+      {/* Divider */}
+      <motion.div
+        className="w-1/5 h-px bg-[#ff5a5f] mx-auto my-12"
+        initial={{ opacity: 0, scaleX: 0 }}
+        whileInView={{ opacity: 1, scaleX: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: false, amount: 0.3 }}
+      />
+
+      {/* Circular Gallery */}
+      <motion.div
+        className="mt-10 relative h-[600px]"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ amount: 0.3, once: false }}
+      >
+        <CircularGallery
+          items={galleryItems}
+          bend={1}
+          textColor="#ffffff"
+          borderRadius={0.05}
+          scrollEase={0.02}
+        />
       </motion.div>
     </section>
   );
