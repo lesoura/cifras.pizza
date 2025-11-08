@@ -31,40 +31,30 @@ export default function BottomTicker() {
     <AnimatePresence>
       {!isAtBottom && (
         <motion.div
-          className="fixed bottom-0 left-0 w-full overflow-hidden z-50"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="relative h-12 flex items-center">
-            <motion.div
-              className="flex whitespace-nowrap"
-              animate={{ x: ["100%", "-100%"] }}
-              transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
+            className="fixed inset-x-0 bottom-0 z-50 flex justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
             >
-              {tickerItems.map((item, i) => (
-                <span
-                  key={i}
-                  className={`inline-block px-8 text-lg font-bold backdrop-blur-sm bg-black/30 rounded-full mr-2 ${
-                    i % 2 === 0 ? "text-[#CEAE7B]" : "text-[#ff5a5f]"
-                  }`}
+            <div className="flex h-12 items-center px-4">
+                <motion.div
+                className="flex whitespace-nowrap"
+                animate={{ x: ["100%", "-100%"] }}
+                transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
                 >
-                  {item}
-                </span>
-              ))}
-              {tickerItems.map((item, i) => (
-                <span
-                  key={`repeat-${i}`}
-                  className={`inline-block px-8 text-lg font-bold backdrop-blur-sm bg-black/30 rounded-full mr-2 ${
-                    i % 2 === 0 ? "text-[#CEAE7B]" : "text-[#ff5a5f]"
-                  }`}
-                >
-                  {item}
-                </span>
-              ))}
-            </motion.div>
-          </div>
+                {tickerItems.concat(tickerItems).map((item, i) => (
+                    <span
+                    key={i}
+                    className={`inline-block px-8 text-lg font-bold backdrop-blur-md bg-black/20 rounded-full mr-2 ${
+                        i % 2 === 0 ? "text-[#CEAE7B]" : "text-[#ff5a5f]"
+                    }`}
+                    >
+                    {item}
+                    </span>
+                ))}
+                </motion.div>
+            </div>
         </motion.div>
       )}
     </AnimatePresence>
